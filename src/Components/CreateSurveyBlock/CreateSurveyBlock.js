@@ -13,9 +13,12 @@ function CreateSurveyBlock({ classes }) {
             Create Survey
           </Typography>
         </div>
-
         <form className={classes.surveyForm} noValidate autoComplete="off">
+          
           <TextField className={classes.surveyFormItem} label="Survey title" variant="outlined" />
+          <Typography variant="h6" display="block" gutterBottom="true">
+            Add question
+          </Typography>
         </form>
       </div>
     </div>
