@@ -3,22 +3,23 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
+import AddQuestionBlock from "../AddQuestionBlock"
+
 
 function CreateSurveyBlock({ classes }) {
   return (
     <div className={classes.container}>
       <div>
         <div>
-          <Typography variant="h4" display="block" gutterBottom="true">
+          <Typography className={classes.createSurveyTitle} variant="h4" display="block" gutterBottom>
             Create Survey
           </Typography>
         </div>
         <form className={classes.surveyForm} noValidate autoComplete="off">
           
           <TextField className={classes.surveyFormItem} label="Survey title" variant="outlined" />
-          <Typography variant="h6" display="block" gutterBottom="true">
-            Add question
-          </Typography>
+
+          <AddQuestionBlock />
         </form>
       </div>
     </div>

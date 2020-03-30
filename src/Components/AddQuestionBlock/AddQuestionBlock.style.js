@@ -2,11 +2,19 @@ import GLOBAL_STYLES from '../../Theme/GlobalStyles';
 
 export const styles = {
   container: {
-    justifyContent: 'center',
+    display: "flex",
     borderRadius: `${GLOBAL_STYLES.borders.borderRadius.base}`,
     // boxShadow: `${GLOBAL_STYLES.boxShadow.base}`,
     boxSizing: 'border-box',
     height: '100%',
+    marginTop: `${GLOBAL_STYLES.spacing.base}`,
     padding: `${GLOBAL_STYLES.spacing.small}`
   },
+  addQuestion: {
+    padding: `${GLOBAL_STYLES.spacing.small}`,
+    color: GLOBAL_STYLES.color.mainColorDarkBlue
+  },
+  plusIcon: {
+    color: GLOBAL_STYLES.color.mainColorGreen,
+  }
 };

@@ -8,12 +8,15 @@ export const styles = {
     // boxShadow: `${GLOBAL_STYLES.boxShadow.base}`,
     boxSizing: 'border-box',
     height: '100%',
-    padding: `${GLOBAL_STYLES.spacing.small}`
+    padding: `${GLOBAL_STYLES.spacing.small}`,
+  },
+  createSurveyTitle: {
+    color: GLOBAL_STYLES.color.mainColorDarkBlue
   },
   surveyForm : {
     width: 600,
   },
   surveyFormItem: {
-    width: "100%"
+    width: "100%" 
   }
 };
