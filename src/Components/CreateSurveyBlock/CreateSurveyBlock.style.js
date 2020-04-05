@@ -10,6 +10,9 @@ export const styles = {
     height: '100%',
     padding: `${GLOBAL_STYLES.spacing.small}`,
   },
+  addButton: {
+    float: "right"
+  },
   createSurveyTitle: {
     color: GLOBAL_STYLES.color.mainColorDarkBlue
   },
