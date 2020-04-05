@@ -1,40 +1,12 @@
-export const validate = () => {
-    let validatedSuccessfully = true;
-
-    let surveyTitleError = null;
-    if(!surveyTitle) {
-      validatedSuccessfully = false;
-      surveyTitleError = {
-        message: 'Survey title can\'t be blank',
-        status: true
-      }
-    } else {
-      surveyTitleError = {
-        message: '',
-        status: false
-      }
+export const validate = (state) => {
+    const errors = {};
+    if(!state.title) {
+      errors.title =  'Survey title can\'t be blank';
     };
 
-    let questionsError = null;
+    if(state.questions.length === 0) {
+    //   errors.questions = 'You must have at least 2 questions';
+    } 
 
-    if(!questionsError) {
-      validatedSuccessfully = false;
-      questionsError = {
-        message: 'You must have at least 2 questions',
-        status: true
-      }
-    } else {
-      questionsError = {
-        message: '',
-        status: false
-      }
-    }
-
-    setErrors({
-      ...errors,
-      surveyTitle: surveyTitleError,
-      questions: questionsError
-    })
-
-    return validatedSuccessfully;
+    return errors;
   }

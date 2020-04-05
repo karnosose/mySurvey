@@ -1,3 +1,5 @@
+import {validate} from './validate'
+
 function addToSurveys(state){
   const surveys = localStorage.getItem('surveys') ? JSON.parse(localStorage.getItem('surveys')) : [];
 
@@ -25,11 +27,21 @@ export default function (state, action) {
         questions: []
       }
     case 'saveSurvey':
-      addToSurveys(state);
+      // if validation passed successfully then we add data to storage
+      if(typeof state.errors === 'undefined' || Object.keys(state.errors).length === 0){
+        addToSurveys(state);
+        return {
+          title: '',
+          questions: []
+        };
+      }
+
+      return state;
+    case 'validate': 
       return {
-        title: '',
-        questions: []
-      };
+        ...state,
+        errors: validate(state)
+      }
     default: 
       return state;
   }
