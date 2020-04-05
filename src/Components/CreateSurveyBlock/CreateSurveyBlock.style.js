@@ -18,6 +18,9 @@ export const styles = {
   },
   surveyForm : {
     width: 600,
+    '& .Mui-error': {
+      marginLeft:0
+    },
   },
   surveyFormItem: {
     width: "100%" 
