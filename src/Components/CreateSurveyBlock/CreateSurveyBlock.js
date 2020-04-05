@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import SaveIcon from '@material-ui/icons/Save';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -27,20 +28,37 @@ function CreateSurveyBlock({ classes }) {
     }
   });
 
+  const [questions, setQuestions] = useState('')
+
   const validateForm = () => {
-    if (surveyTitle === "") {
-      setErrors({
-        ...errors,
-        surveyTitle: {
-          message: 'survey title can\'t be blank',
-          status: true
-        }
-      })
+    const surveyTitleError = surveyTitle === "" ?  {
+      message: 'survey title can\'t be blank',
+      status: true
+    } : {
+      message: '',
+      status: false
+    };
+
+    const questionsError = questions.length <=1 ? {
+      message: "you should have at least 2 questions",
+      status: true
+    } : {
+      message: '',
+      status: false
     }
+
+    
+    
+    setErrors({
+      ...errors,
+      surveyTitle: surveyTitleError,
+      questions: questionsError
+    })
   }
 
   const saveSurvey = () => {
     validateForm();
+
   }
   
   return (
@@ -72,7 +90,9 @@ function CreateSurveyBlock({ classes }) {
           />
 
           <AddQuestionBlock />
-
+          <FormHelperText error={errors.questions.status}>
+            {errors.questions.message}
+          </FormHelperText> 
           <div>
             <Button
               variant="contained"
