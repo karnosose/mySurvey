@@ -1,4 +1,4 @@
-import React, { useReducer} from 'react';
+import React, {useEffect, useReducer} from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 
 import reducer from './reducer'
 import AddQuestionBlock from "../AddQuestionBlock"
-import ShowStateTest from '../showStateTest'
 
 function CreateSurveyBlock({ classes }) {
   const defaultState = {
@@ -52,7 +51,24 @@ function CreateSurveyBlock({ classes }) {
   return (
     <div className={classes.container}>
       <div>
-        <ShowStateTest obj={state} />
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td>Title:</td>
+                <td>{state.title}</td>
+              </tr>
+              <tr>
+                <td>Questions:</td>
+                <td>{JSON.stringify(state.questions)}</td>
+              </tr>
+              <tr>
+                <td>Errors:</td>
+                <td>{JSON.stringify(state.errors)}</td>
+              </tr>
+            </tbody> 
+          </table>
+        </div>
         <div>
           <Typography
             className={classes.createSurveyTitle}
