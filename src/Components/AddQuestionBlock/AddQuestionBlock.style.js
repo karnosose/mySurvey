@@ -16,5 +16,12 @@ export const styles = {
     color: GLOBAL_STYLES.color.mainColorGreen,
     cursor: "pointer",
     marginLeft: `-${GLOBAL_STYLES.spacing.base}`
+  },
+  questionsContainer: {
+    width: '100%'
+  },
+  question: {
+    width: '100%',
+    marginTop: GLOBAL_STYLES.spacing.base
   }
 };

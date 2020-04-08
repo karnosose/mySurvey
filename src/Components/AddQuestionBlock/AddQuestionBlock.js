@@ -4,6 +4,8 @@ import uuid from 'react-uuid'
 import PropTypes from "prop-types";
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import TextField from '@material-ui/core/TextField';
+
 import { SurveyContext } from "../CreateSurveyBlock/context";
 
 
@@ -25,15 +27,20 @@ function AddQuestionBlock ({classes}) {
     })
   }
   return (
-    <div className={classes.container}>
+    <div className={classes.questionsContainer}> 
       <div className={classes.questionsList}>
         {state.questions.map(question => (
-          <div className={classes.question} key={uuid()}> 
-            <input 
-              value={question.title} 
-              onChange={e => questionChangeHandler(e)}
-            />
-          </div>
+          <TextField 
+            className={classes.question} 
+            key={uuid()}
+            // error={hasError('title')}
+            value={question.title} 
+            onChange={e => questionChangeHandler(e)}
+            // helperText={getError('title')}
+            label="Type question"
+            // onChange={e => changeTitle(e)}
+            variant="outlined" 
+          />
         ))}
       </div>
       <div className={classes.addQuestion}>
