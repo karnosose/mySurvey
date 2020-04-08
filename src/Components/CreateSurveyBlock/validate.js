@@ -5,7 +5,7 @@ export const validate = (state) => {
     };
 
     if(state.questions.length === 0) {
-      errors.questions = 'You must have at least 2 questions';
+    //   errors.questions = 'You must have at least 2 questions';
     } 
 
     return errors;

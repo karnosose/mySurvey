@@ -9,7 +9,7 @@ function addToSurveys(state){
     questions: state.questions
   }
   
-  surveys.push(newSurvey)
+  surveys.push(newSurvey) 
   
   localStorage.setItem('surveys', JSON.stringify(surveys))
 }
@@ -42,6 +42,8 @@ export default function (state, action) {
         ...state,
         errors: validate(state)
       }
+    case "addQuestion" : 
+      return state;
     default: 
       return state;
   }
