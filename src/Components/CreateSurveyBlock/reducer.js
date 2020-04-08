@@ -24,7 +24,7 @@ export default function (state, action) {
     case 'addQuestion': 
       return {
         ...state,
-        questions: [{title: ''}]
+        questions:  [{title: '', id: action.payload}, ...state.questions]
       };
     case 'saveSurvey':
       // if validation passed successfully then we add data to storage
@@ -42,6 +42,7 @@ export default function (state, action) {
         ...state,
         errors: validate(state)
       }
+
     default: 
       return state;
   }

@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
+import uuid from 'react-uuid'
+
 import PropTypes from "prop-types";
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import { SurveyContext } from "../CreateSurveyBlock/context";
+
+
 
 function AddQuestionBlock ({classes}) {
 
@@ -11,6 +15,7 @@ function AddQuestionBlock ({classes}) {
   const addQuestionField = () => {
     dispatch({
       type: "addQuestion",
+      payload: uuid()
     })
   }
   const questionChangeHandler = e => {
@@ -23,7 +28,7 @@ function AddQuestionBlock ({classes}) {
     <div className={classes.container}>
       <div className={classes.questionsList}>
         {state.questions.map(question => (
-          <div className={classes.question} key={Date.now()}> 
+          <div className={classes.question} key={uuid()}> 
             <input 
               value={question.title} 
               onChange={e => questionChangeHandler(e)}
