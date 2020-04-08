@@ -28,6 +28,9 @@ function CreateSurveyBlock({ classes }) {
 
   const changeTitle = e => {
     dispatch({
+      type: "addQuestion"
+    })
+    dispatch({
       type: 'changeTitle',
       payload: e.target.value
     })

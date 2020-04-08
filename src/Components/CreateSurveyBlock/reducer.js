@@ -24,8 +24,8 @@ export default function (state, action) {
     case 'addQuestion': 
       return {
         ...state,
-        questions: []
-      }
+        questions: [{title: ''}]
+      };
     case 'saveSurvey':
       // if validation passed successfully then we add data to storage
       if(typeof state.errors === 'undefined' || Object.keys(state.errors).length === 0){
@@ -42,8 +42,6 @@ export default function (state, action) {
         ...state,
         errors: validate(state)
       }
-    case "addQuestion" : 
-      return state;
     default: 
       return state;
   }
