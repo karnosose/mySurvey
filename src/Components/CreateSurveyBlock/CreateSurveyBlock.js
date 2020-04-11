@@ -28,9 +28,6 @@ function CreateSurveyBlock({ classes }) {
 
   const changeTitle = e => {
     dispatch({
-      type: "addQuestion"
-    })
-    dispatch({
       type: 'changeTitle',
       payload: e.target.value
     })
@@ -56,7 +53,7 @@ function CreateSurveyBlock({ classes }) {
     <SurveyContext.Provider value={{state, dispatch}}>
       <div className={classes.container}>
         <div>
-          {/* <div>
+          <div>
             <table>
               <tbody>
                 <tr>
@@ -73,7 +70,7 @@ function CreateSurveyBlock({ classes }) {
                 </tr>
               </tbody> 
             </table>
-          </div> */}
+          </div>
           <div>
             <Typography
               className={classes.createSurveyTitle}
